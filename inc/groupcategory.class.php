@@ -61,8 +61,7 @@ class PluginEntitycategoryEntitycategory extends CommonDBTM {
         $user = new User();
 
         if ($user->getFromDB($user_id)) {
-            $user_entities = Entity_User::getUserEntities($user_id);
-
+            $user_entities = Profile_User::getUserEntities($user_id->fields['id']);
             foreach ($user_entities as $entity_data) {
                 $entity = new Entity();
                 if ($entity->getFromDB($entity_data['id'])) {
